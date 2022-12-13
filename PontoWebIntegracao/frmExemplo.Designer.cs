@@ -36,40 +36,30 @@
             this.txtBatidasHoraFim = new System.Windows.Forms.TextBox();
             this.txtBatidasHoraInicio = new System.Windows.Forms.TextBox();
             this.txtBatidasFuncionarioPis = new System.Windows.Forms.TextBox();
-            this.txtBatidasDataFim = new System.Windows.Forms.TextBox();
-            this.txtBatidasDataInicio = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.btnBatidasListar = new System.Windows.Forms.Button();
-            this.dgvBatidas = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button10 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtPis = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.btnFuncinariosListar = new System.Windows.Forms.Button();
-            this.dgvFuncionarios = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button11 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDepartamentoDescricao = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.btnDepartamentosListar = new System.Windows.Forms.Button();
-            this.dgvDepartamentos = new System.Windows.Forms.DataGridView();
             this.tbgEmpresas = new System.Windows.Forms.TabPage();
             this.button14 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCnpjEmpresa = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnEmpresas_Listar = new System.Windows.Forms.Button();
-            this.dgvEmpresas = new System.Windows.Forms.DataGridView();
             this.tbgContaSecullum = new System.Windows.Forms.TabPage();
             this.txtCS_NomeUsuario = new System.Windows.Forms.TextBox();
             this.txtCS_Access_Token = new System.Windows.Forms.TextBox();
@@ -87,22 +77,36 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbgGerarXLS = new System.Windows.Forms.TabPage();
+            this.txtBatidasDataFim = new System.Windows.Forms.TextBox();
+            this.txtBatidasDataInicio = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dgvFuncionarios = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dgvDepartamentos = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dgvEmpresas = new System.Windows.Forms.DataGridView();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnGerarXLSListar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvBatidas = new System.Windows.Forms.DataGridView();
             this.tabPage9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBatidas)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).BeginInit();
             this.tbgEmpresas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpresas)).BeginInit();
             this.tbgContaSecullum.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tbgGerarXLS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpresas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBatidas)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage9
@@ -114,23 +118,16 @@
             this.tabPage9.Controls.Add(this.txtBatidasHoraFim);
             this.tabPage9.Controls.Add(this.txtBatidasHoraInicio);
             this.tabPage9.Controls.Add(this.txtBatidasFuncionarioPis);
-            this.tabPage9.Controls.Add(this.txtBatidasDataFim);
-            this.tabPage9.Controls.Add(this.txtBatidasDataInicio);
             this.tabPage9.Controls.Add(this.label28);
             this.tabPage9.Controls.Add(this.label29);
             this.tabPage9.Controls.Add(this.label32);
             this.tabPage9.Controls.Add(this.label33);
-            this.tabPage9.Controls.Add(this.label25);
-            this.tabPage9.Controls.Add(this.label24);
             this.tabPage9.Controls.Add(this.label19);
-            this.tabPage9.Controls.Add(this.label20);
-            this.tabPage9.Controls.Add(this.label21);
             this.tabPage9.Controls.Add(this.btnBatidasListar);
-            this.tabPage9.Controls.Add(this.dgvBatidas);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(1004, 453);
+            this.tabPage9.Size = new System.Drawing.Size(1004, 552);
             this.tabPage9.TabIndex = 10;
             this.tabPage9.Text = "Batidas";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -190,20 +187,6 @@
             this.txtBatidasFuncionarioPis.Size = new System.Drawing.Size(187, 20);
             this.txtBatidasFuncionarioPis.TabIndex = 5;
             // 
-            // txtBatidasDataFim
-            // 
-            this.txtBatidasDataFim.Location = new System.Drawing.Point(129, 294);
-            this.txtBatidasDataFim.Name = "txtBatidasDataFim";
-            this.txtBatidasDataFim.Size = new System.Drawing.Size(187, 20);
-            this.txtBatidasDataFim.TabIndex = 2;
-            // 
-            // txtBatidasDataInicio
-            // 
-            this.txtBatidasDataInicio.Location = new System.Drawing.Point(129, 268);
-            this.txtBatidasDataInicio.Name = "txtBatidasDataInicio";
-            this.txtBatidasDataInicio.Size = new System.Drawing.Size(187, 20);
-            this.txtBatidasDataInicio.TabIndex = 1;
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -240,24 +223,6 @@
             this.label33.TabIndex = 59;
             this.label33.Text = "Hora Início";
             // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(337, 301);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(123, 13);
-            this.label25.TabIndex = 57;
-            this.label25.Text = "Obrigatório (yyyy-MM-dd)";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(337, 275);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(123, 13);
-            this.label24.TabIndex = 56;
-            this.label24.Text = "Obrigatório (yyyy-MM-dd)";
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -266,24 +231,6 @@
             this.label19.Size = new System.Drawing.Size(82, 13);
             this.label19.TabIndex = 55;
             this.label19.Text = "Funcionário PIS";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(15, 301);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(49, 13);
-            this.label20.TabIndex = 53;
-            this.label20.Text = "Data Fim";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(15, 275);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(60, 13);
-            this.label21.TabIndex = 50;
-            this.label21.Text = "Data Início";
             // 
             // btnBatidasListar
             // 
@@ -295,14 +242,6 @@
             this.btnBatidasListar.UseVisualStyleBackColor = true;
             this.btnBatidasListar.Click += new System.EventHandler(this.button29_Click);
             // 
-            // dgvBatidas
-            // 
-            this.dgvBatidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBatidas.Location = new System.Drawing.Point(18, 46);
-            this.dgvBatidas.Name = "dgvBatidas";
-            this.dgvBatidas.Size = new System.Drawing.Size(965, 193);
-            this.dgvBatidas.TabIndex = 46;
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.button10);
@@ -310,11 +249,10 @@
             this.tabPage4.Controls.Add(this.txtPis);
             this.tabPage4.Controls.Add(this.button8);
             this.tabPage4.Controls.Add(this.btnFuncinariosListar);
-            this.tabPage4.Controls.Add(this.dgvFuncionarios);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1004, 453);
+            this.tabPage4.Size = new System.Drawing.Size(1004, 552);
             this.tabPage4.TabIndex = 5;
             this.tabPage4.Text = "Funcionários";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -365,14 +303,6 @@
             this.btnFuncinariosListar.UseVisualStyleBackColor = true;
             this.btnFuncinariosListar.Click += new System.EventHandler(this.button9_Click);
             // 
-            // dgvFuncionarios
-            // 
-            this.dgvFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFuncionarios.Location = new System.Drawing.Point(18, 46);
-            this.dgvFuncionarios.Name = "dgvFuncionarios";
-            this.dgvFuncionarios.Size = new System.Drawing.Size(965, 193);
-            this.dgvFuncionarios.TabIndex = 24;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.button11);
@@ -380,11 +310,10 @@
             this.tabPage3.Controls.Add(this.txtDepartamentoDescricao);
             this.tabPage3.Controls.Add(this.button6);
             this.tabPage3.Controls.Add(this.btnDepartamentosListar);
-            this.tabPage3.Controls.Add(this.dgvDepartamentos);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1004, 453);
+            this.tabPage3.Size = new System.Drawing.Size(1004, 552);
             this.tabPage3.TabIndex = 4;
             this.tabPage3.Text = "Departamentos";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -435,14 +364,6 @@
             this.btnDepartamentosListar.UseVisualStyleBackColor = true;
             this.btnDepartamentosListar.Click += new System.EventHandler(this.button7_Click);
             // 
-            // dgvDepartamentos
-            // 
-            this.dgvDepartamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDepartamentos.Location = new System.Drawing.Point(18, 46);
-            this.dgvDepartamentos.Name = "dgvDepartamentos";
-            this.dgvDepartamentos.Size = new System.Drawing.Size(965, 193);
-            this.dgvDepartamentos.TabIndex = 19;
-            // 
             // tbgEmpresas
             // 
             this.tbgEmpresas.Controls.Add(this.button14);
@@ -450,11 +371,10 @@
             this.tbgEmpresas.Controls.Add(this.txtCnpjEmpresa);
             this.tbgEmpresas.Controls.Add(this.button1);
             this.tbgEmpresas.Controls.Add(this.btnEmpresas_Listar);
-            this.tbgEmpresas.Controls.Add(this.dgvEmpresas);
             this.tbgEmpresas.Location = new System.Drawing.Point(4, 22);
             this.tbgEmpresas.Name = "tbgEmpresas";
             this.tbgEmpresas.Padding = new System.Windows.Forms.Padding(3);
-            this.tbgEmpresas.Size = new System.Drawing.Size(1004, 453);
+            this.tbgEmpresas.Size = new System.Drawing.Size(1004, 552);
             this.tbgEmpresas.TabIndex = 1;
             this.tbgEmpresas.Text = "Empresas";
             this.tbgEmpresas.UseVisualStyleBackColor = true;
@@ -505,14 +425,6 @@
             this.btnEmpresas_Listar.UseVisualStyleBackColor = true;
             this.btnEmpresas_Listar.Click += new System.EventHandler(this.btnEmpresas_Listar_Click);
             // 
-            // dgvEmpresas
-            // 
-            this.dgvEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpresas.Location = new System.Drawing.Point(18, 46);
-            this.dgvEmpresas.Name = "dgvEmpresas";
-            this.dgvEmpresas.Size = new System.Drawing.Size(965, 193);
-            this.dgvEmpresas.TabIndex = 0;
-            // 
             // tbgContaSecullum
             // 
             this.tbgContaSecullum.Controls.Add(this.txtCS_NomeUsuario);
@@ -532,7 +444,7 @@
             this.tbgContaSecullum.Location = new System.Drawing.Point(4, 22);
             this.tbgContaSecullum.Name = "tbgContaSecullum";
             this.tbgContaSecullum.Padding = new System.Windows.Forms.Padding(3);
-            this.tbgContaSecullum.Size = new System.Drawing.Size(1004, 453);
+            this.tbgContaSecullum.Size = new System.Drawing.Size(1004, 552);
             this.tbgContaSecullum.TabIndex = 0;
             this.tbgContaSecullum.Text = "Conta Secullum";
             this.tbgContaSecullum.UseVisualStyleBackColor = true;
@@ -569,6 +481,7 @@
             this.txtCS_Usuario.Name = "txtCS_Usuario";
             this.txtCS_Usuario.Size = new System.Drawing.Size(243, 20);
             this.txtCS_Usuario.TabIndex = 0;
+            this.txtCS_Usuario.Text = "teste@teste.br";
             // 
             // label6
             // 
@@ -635,6 +548,7 @@
             this.txtCS_Senha.Name = "txtCS_Senha";
             this.txtCS_Senha.Size = new System.Drawing.Size(134, 20);
             this.txtCS_Senha.TabIndex = 1;
+            this.txtCS_Senha.Text = "123";
             this.txtCS_Senha.UseSystemPasswordChar = true;
             // 
             // label2
@@ -678,11 +592,25 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1012, 479);
+            this.tabControl1.Size = new System.Drawing.Size(1012, 578);
             this.tabControl1.TabIndex = 5;
             // 
             // tbgGerarXLS
             // 
+            this.tbgGerarXLS.Controls.Add(this.dgvBatidas);
+            this.tbgGerarXLS.Controls.Add(this.txtBatidasDataFim);
+            this.tbgGerarXLS.Controls.Add(this.txtBatidasDataInicio);
+            this.tbgGerarXLS.Controls.Add(this.label25);
+            this.tbgGerarXLS.Controls.Add(this.label24);
+            this.tbgGerarXLS.Controls.Add(this.label20);
+            this.tbgGerarXLS.Controls.Add(this.label21);
+            this.tbgGerarXLS.Controls.Add(this.label13);
+            this.tbgGerarXLS.Controls.Add(this.label12);
+            this.tbgGerarXLS.Controls.Add(this.dgvFuncionarios);
+            this.tbgGerarXLS.Controls.Add(this.label9);
+            this.tbgGerarXLS.Controls.Add(this.dgvDepartamentos);
+            this.tbgGerarXLS.Controls.Add(this.label8);
+            this.tbgGerarXLS.Controls.Add(this.dgvEmpresas);
             this.tbgGerarXLS.Controls.Add(this.dateTimePicker2);
             this.tbgGerarXLS.Controls.Add(this.dateTimePicker1);
             this.tbgGerarXLS.Controls.Add(this.btnGerarXLSListar);
@@ -690,15 +618,125 @@
             this.tbgGerarXLS.Location = new System.Drawing.Point(4, 22);
             this.tbgGerarXLS.Name = "tbgGerarXLS";
             this.tbgGerarXLS.Padding = new System.Windows.Forms.Padding(3);
-            this.tbgGerarXLS.Size = new System.Drawing.Size(1004, 453);
+            this.tbgGerarXLS.Size = new System.Drawing.Size(1004, 552);
             this.tbgGerarXLS.TabIndex = 11;
             this.tbgGerarXLS.Text = "Gerar XLS";
             this.tbgGerarXLS.UseVisualStyleBackColor = true;
             // 
+            // txtBatidasDataFim
+            // 
+            this.txtBatidasDataFim.Location = new System.Drawing.Point(534, 512);
+            this.txtBatidasDataFim.Name = "txtBatidasDataFim";
+            this.txtBatidasDataFim.Size = new System.Drawing.Size(187, 20);
+            this.txtBatidasDataFim.TabIndex = 60;
+            // 
+            // txtBatidasDataInicio
+            // 
+            this.txtBatidasDataInicio.Location = new System.Drawing.Point(534, 486);
+            this.txtBatidasDataInicio.Name = "txtBatidasDataInicio";
+            this.txtBatidasDataInicio.Size = new System.Drawing.Size(187, 20);
+            this.txtBatidasDataInicio.TabIndex = 59;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(742, 519);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(123, 13);
+            this.label25.TabIndex = 64;
+            this.label25.Text = "Obrigatório (yyyy-MM-dd)";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(742, 493);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(123, 13);
+            this.label24.TabIndex = 63;
+            this.label24.Text = "Obrigatório (yyyy-MM-dd)";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(420, 519);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(49, 13);
+            this.label20.TabIndex = 62;
+            this.label20.Text = "Data Fim";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(420, 493);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(60, 13);
+            this.label21.TabIndex = 61;
+            this.label21.Text = "Data Início";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 263);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 13);
+            this.label13.TabIndex = 58;
+            this.label13.Text = "Batidas";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 145);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(67, 13);
+            this.label12.TabIndex = 56;
+            this.label12.Text = "Funcionarios";
+            // 
+            // dgvFuncionarios
+            // 
+            this.dgvFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFuncionarios.Location = new System.Drawing.Point(6, 161);
+            this.dgvFuncionarios.Name = "dgvFuncionarios";
+            this.dgvFuncionarios.Size = new System.Drawing.Size(965, 93);
+            this.dgvFuncionarios.TabIndex = 55;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 67);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 13);
+            this.label9.TabIndex = 54;
+            this.label9.Text = "Departamentos";
+            // 
+            // dgvDepartamentos
+            // 
+            this.dgvDepartamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDepartamentos.Location = new System.Drawing.Point(6, 83);
+            this.dgvDepartamentos.Name = "dgvDepartamentos";
+            this.dgvDepartamentos.Size = new System.Drawing.Size(965, 59);
+            this.dgvDepartamentos.TabIndex = 53;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 4);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 13);
+            this.label8.TabIndex = 52;
+            this.label8.Text = "Empresas";
+            // 
+            // dgvEmpresas
+            // 
+            this.dgvEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmpresas.Location = new System.Drawing.Point(6, 20);
+            this.dgvEmpresas.Name = "dgvEmpresas";
+            this.dgvEmpresas.Size = new System.Drawing.Size(965, 44);
+            this.dgvEmpresas.TabIndex = 51;
+            // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(148, 324);
+            this.dateTimePicker2.Location = new System.Drawing.Point(148, 449);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(108, 20);
             this.dateTimePicker2.TabIndex = 50;
@@ -706,14 +744,14 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(20, 324);
+            this.dateTimePicker1.Location = new System.Drawing.Point(20, 449);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(108, 20);
             this.dateTimePicker1.TabIndex = 49;
             // 
             // btnGerarXLSListar
             // 
-            this.btnGerarXLSListar.Location = new System.Drawing.Point(20, 361);
+            this.btnGerarXLSListar.Location = new System.Drawing.Point(20, 475);
             this.btnGerarXLSListar.Name = "btnGerarXLSListar";
             this.btnGerarXLSListar.Size = new System.Drawing.Size(80, 60);
             this.btnGerarXLSListar.TabIndex = 48;
@@ -724,16 +762,24 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 358);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(992, 300);
+            this.dataGridView1.Size = new System.Drawing.Size(992, 85);
             this.dataGridView1.TabIndex = 47;
+            // 
+            // dgvBatidas
+            // 
+            this.dgvBatidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBatidas.Location = new System.Drawing.Point(6, 279);
+            this.dgvBatidas.Name = "dgvBatidas";
+            this.dgvBatidas.Size = new System.Drawing.Size(965, 73);
+            this.dgvBatidas.TabIndex = 65;
             // 
             // frmExemplo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1036, 503);
+            this.ClientSize = new System.Drawing.Size(1036, 602);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -742,21 +788,22 @@
             this.Text = "Ponto Secullum Web - Exemplo de Integração Externa";
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBatidas)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).EndInit();
             this.tbgEmpresas.ResumeLayout(false);
             this.tbgEmpresas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpresas)).EndInit();
             this.tbgContaSecullum.ResumeLayout(false);
             this.tbgContaSecullum.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tbgGerarXLS.ResumeLayout(false);
+            this.tbgGerarXLS.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpresas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBatidas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -771,40 +818,30 @@
         private System.Windows.Forms.TextBox txtBatidasHoraFim;
         private System.Windows.Forms.TextBox txtBatidasHoraInicio;
         private System.Windows.Forms.TextBox txtBatidasFuncionarioPis;
-        private System.Windows.Forms.TextBox txtBatidasDataFim;
-        private System.Windows.Forms.TextBox txtBatidasDataInicio;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnBatidasListar;
-        private System.Windows.Forms.DataGridView dgvBatidas;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPis;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button btnFuncinariosListar;
-        private System.Windows.Forms.DataGridView dgvFuncionarios;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtDepartamentoDescricao;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnDepartamentosListar;
-        private System.Windows.Forms.DataGridView dgvDepartamentos;
         private System.Windows.Forms.TabPage tbgEmpresas;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCnpjEmpresa;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnEmpresas_Listar;
-        private System.Windows.Forms.DataGridView dgvEmpresas;
         private System.Windows.Forms.TabPage tbgContaSecullum;
         private System.Windows.Forms.TextBox txtCS_NomeUsuario;
         private System.Windows.Forms.TextBox txtCS_Access_Token;
@@ -826,6 +863,20 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridView dgvFuncionarios;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridView dgvDepartamentos;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView dgvEmpresas;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtBatidasDataFim;
+        private System.Windows.Forms.TextBox txtBatidasDataInicio;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridView dgvBatidas;
     }
 }
 
