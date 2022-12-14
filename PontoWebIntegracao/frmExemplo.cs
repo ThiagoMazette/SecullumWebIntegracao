@@ -679,14 +679,18 @@ namespace PontoWebIntegracaoExterna
                 string IdFunc = dgvFuncionarios.Rows[func.Index].Cells["Id"].Value.ToString();
                 string NomeFunc = dgvFuncionarios.Rows[func.Index].Cells["Nome"].Value.ToString();
                 string DptoFunc = dgvFuncionarios.Rows[func.Index].Cells["DepartamentoId"].Value.ToString();
+                bool Invisivel = Convert.ToBoolean(dgvFuncionarios.Rows[func.Index].Cells["Invisivel"].Value.ToString());
 
-                ListaNomeFuncionario.Add(new ClasseListaNomeFuncionario()
+                if (Invisivel == false)
                 {
-                    ID = IdFunc,
-                    Nome = NomeFunc,
-                    Dpto = DptoFunc
+                    ListaNomeFuncionario.Add(new ClasseListaNomeFuncionario()
+                    {
+                        ID = IdFunc,
+                        Nome = NomeFunc,
+                        Dpto = DptoFunc
 
-                });
+                    });
+                }
 
             }
             #endregion
@@ -699,63 +703,59 @@ namespace PontoWebIntegracaoExterna
             string dataFinal = dateTimePicker2.Value.ToString("dd/MM/yyyy");
             int totalDias = (DateTime.Parse(dataFinal).Subtract(DateTime.Parse(dataInicial))).Days;
             DateTime DataDGV = DateTime.Parse(dataInicial);
-            string 
+            
+            
             for (int i = 0; i <= totalDias; i++)
             {
                 
 
-
-                foreach (DataGridViewRow bat in dgvBatidas.Rows)
+                foreach (var Func in ListaNomeFuncionario)
                 {
-                    string Data = dgvBatidas.Rows[bat.Index].Cells["Data"].Value.ToString().Substring(0, 10);
-                    string idFunc = dgvBatidas.Rows[bat.Index].Cells["FuncionarioId"].Value.ToString();
                     string NomeFunc = "";
                     string idDpto = "";
                     string NomeDpto = "";
                     string Falta = "1";
-                    //     string DataDentro = "";
-                    //     string idFuncDentro = "";
-                    string Batida1 = dgvBatidas.Rows[bat.Index].Cells["Entrada1"].Value.ToString();
-                    string Batida2 = dgvBatidas.Rows[bat.Index].Cells["Saida1"].Value.ToString();
-                    string Batida3 = dgvBatidas.Rows[bat.Index].Cells["Entrada2"].Value.ToString();
-                    string Batida4 = dgvBatidas.Rows[bat.Index].Cells["Saida2"].Value.ToString();
-                    string Batida5 = dgvBatidas.Rows[bat.Index].Cells["Entrada3"].Value.ToString();
-                    string Batida6 = dgvBatidas.Rows[bat.Index].Cells["Saida3"].Value.ToString();
-                    string Batida7 = dgvBatidas.Rows[bat.Index].Cells["Entrada4"].Value.ToString();
-                    string Batida8 = dgvBatidas.Rows[bat.Index].Cells["Saida4"].Value.ToString();
-                    string Batida9 = dgvBatidas.Rows[bat.Index].Cells["Entrada5"].Value.ToString();
-                    string Batida10 = dgvBatidas.Rows[bat.Index].Cells["Saida5"].Value.ToString();
-                    //         bool TemAlgumaBatida = false;
+                    string idFunc = "";
 
-                    if (Batida1 != "" || Batida2 != "" || Batida3 != "" || Batida3 != "" || Batida4 != "" || Batida5 != "" || Batida6 != "" || Batida7 != "" || Batida8 != "" || Batida9 != "" || Batida10 != "")
-                    {
-                        Falta = "0";
-                    }
 
-                    foreach (var Func in ListaNomeFuncionario)
+                    foreach (DataGridViewRow bat in dgvBatidas.Rows)
                     {
-                        if (Func.ID == idFunc)
+                        DateTime Data = Convert.ToDateTime(dgvBatidas.Rows[bat.Index].Cells["Data"]
+                            .Value.ToString().Substring(0, 10));
+                        idFunc = dgvBatidas.Rows[bat.Index].Cells["FuncionarioId"].Value.ToString();
+                        
+
+                        if (DataDGV == Data && Func.ID == idFunc)
                         {
-                            NomeFunc = Func.Nome;
-                            idDpto = Func.Dpto;
-                            foreach (var dep in ListaNomeDepartamento)
-                            {
-                                if (dep.ID == idDpto)
-                                {
-                                    NomeDpto = dep.Nome;
-                                }
-
-                            }
+                            Falta = "0";
+                            break;
                         }
+                        
+
 
                     }
 
-                    //if (!ListaIDFuncionarios.Contains(idFunc))
-                    //{
-                    //    ListaIDFuncionarios.Add(idFunc);
-                    //    Falta = "0";
+                    if(Falta == "1")
+                    {
+                        idFunc = Func.ID;
 
-                    //}
+                    }
+
+                    //if (Func.ID == idFunc)
+                    //{
+                        NomeFunc = Func.Nome;
+                        idDpto = Func.Dpto;
+                        foreach (var dep in ListaNomeDepartamento)
+                        {
+                            if (dep.ID == idDpto)
+                            {
+                                NomeDpto = dep.Nome;
+                                break;
+                            }
+
+                        }
+                        //? break;
+              //      }
 
 
                     dataGridView1.ColumnCount = 4; //carregar a qdade de colunas
@@ -770,13 +770,18 @@ namespace PontoWebIntegracaoExterna
                     dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
 
 
-                    dataGridView1.Rows.Add(DataDGV.ToString().Substring(0,10), NomeFunc.ToString(), NomeDpto.ToString(), Falta.ToString());
-                    DataDGV = DataDGV.AddDays(1);
+
+
+                    dataGridView1.Rows.Add(DataDGV.ToString().Substring(0, 10), NomeFunc.ToString(), 
+                        NomeDpto.ToString(), Falta.ToString());
 
 
 
 
                 }
+
+                DataDGV = DataDGV.AddDays(1);
+
             }
 
 
