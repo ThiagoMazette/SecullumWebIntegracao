@@ -77,20 +77,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbgGerarXLS = new System.Windows.Forms.TabPage();
-            this.dgvBatidas = new System.Windows.Forms.DataGridView();
             this.txtBatidasDataFim = new System.Windows.Forms.TextBox();
             this.txtBatidasDataInicio = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvFuncionarios = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvDepartamentos = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvEmpresas = new System.Windows.Forms.DataGridView();
+            this.dgvBatidas = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnGerarXLSListar = new System.Windows.Forms.Button();
@@ -103,10 +103,10 @@
             this.tbgContaSecullum.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tbgGerarXLS.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBatidas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpresas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBatidas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,7 +128,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(1004, 552);
+            this.tabPage9.Size = new System.Drawing.Size(343, 54);
             this.tabPage9.TabIndex = 10;
             this.tabPage9.Text = "Batidas";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -253,7 +253,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1004, 552);
+            this.tabPage4.Size = new System.Drawing.Size(343, 54);
             this.tabPage4.TabIndex = 5;
             this.tabPage4.Text = "Funcionários";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -314,7 +314,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1004, 552);
+            this.tabPage3.Size = new System.Drawing.Size(343, 54);
             this.tabPage3.TabIndex = 4;
             this.tabPage3.Text = "Departamentos";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -375,7 +375,7 @@
             this.tbgEmpresas.Location = new System.Drawing.Point(4, 22);
             this.tbgEmpresas.Name = "tbgEmpresas";
             this.tbgEmpresas.Padding = new System.Windows.Forms.Padding(3);
-            this.tbgEmpresas.Size = new System.Drawing.Size(1004, 552);
+            this.tbgEmpresas.Size = new System.Drawing.Size(343, 54);
             this.tbgEmpresas.TabIndex = 1;
             this.tbgEmpresas.Text = "Empresas";
             this.tbgEmpresas.UseVisualStyleBackColor = true;
@@ -445,7 +445,7 @@
             this.tbgContaSecullum.Location = new System.Drawing.Point(4, 22);
             this.tbgContaSecullum.Name = "tbgContaSecullum";
             this.tbgContaSecullum.Padding = new System.Windows.Forms.Padding(3);
-            this.tbgContaSecullum.Size = new System.Drawing.Size(1004, 552);
+            this.tbgContaSecullum.Size = new System.Drawing.Size(343, 54);
             this.tbgContaSecullum.TabIndex = 0;
             this.tbgContaSecullum.Text = "Conta Secullum";
             this.tbgContaSecullum.UseVisualStyleBackColor = true;
@@ -618,18 +618,6 @@
             this.tbgGerarXLS.Text = "Gerar XLS";
             this.tbgGerarXLS.UseVisualStyleBackColor = true;
             // 
-            // dgvBatidas
-            // 
-            this.dgvBatidas.AllowUserToAddRows = false;
-            this.dgvBatidas.AllowUserToDeleteRows = false;
-            this.dgvBatidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBatidas.Location = new System.Drawing.Point(8, 31);
-            this.dgvBatidas.Name = "dgvBatidas";
-            this.dgvBatidas.RowHeadersVisible = false;
-            this.dgvBatidas.Size = new System.Drawing.Size(965, 199);
-            this.dgvBatidas.TabIndex = 65;
-            this.dgvBatidas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBatidas_CellContentClick);
-            // 
             // txtBatidasDataFim
             // 
             this.txtBatidasDataFim.Location = new System.Drawing.Point(534, 512);
@@ -679,15 +667,6 @@
             this.label21.Size = new System.Drawing.Size(60, 13);
             this.label21.TabIndex = 61;
             this.label21.Text = "Data Início";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 15);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 13);
-            this.label13.TabIndex = 58;
-            this.label13.Text = "Batidas";
             // 
             // label12
             // 
@@ -739,6 +718,27 @@
             this.dgvEmpresas.Name = "dgvEmpresas";
             this.dgvEmpresas.Size = new System.Drawing.Size(965, 44);
             this.dgvEmpresas.TabIndex = 51;
+            // 
+            // dgvBatidas
+            // 
+            this.dgvBatidas.AllowUserToAddRows = false;
+            this.dgvBatidas.AllowUserToDeleteRows = false;
+            this.dgvBatidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBatidas.Location = new System.Drawing.Point(8, 31);
+            this.dgvBatidas.Name = "dgvBatidas";
+            this.dgvBatidas.RowHeadersVisible = false;
+            this.dgvBatidas.Size = new System.Drawing.Size(965, 199);
+            this.dgvBatidas.TabIndex = 65;
+            this.dgvBatidas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBatidas_CellContentClick);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 15);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 13);
+            this.label13.TabIndex = 58;
+            this.label13.Text = "Batidas";
             // 
             // dateTimePicker2
             // 
@@ -818,10 +818,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tbgGerarXLS.ResumeLayout(false);
             this.tbgGerarXLS.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBatidas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpresas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBatidas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
