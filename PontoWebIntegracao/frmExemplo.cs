@@ -2,6 +2,7 @@
 using PontoWebIntegracaoExterna.Modelos;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace PontoWebIntegracaoExterna
@@ -717,12 +718,27 @@ namespace PontoWebIntegracaoExterna
 
                 foreach (var Func in ListaNomeFuncionario)
                 {
+
+                    string Batida1 = "";
+                    string Batida2 = "";
+                    string Batida3 = "";
+                    string Batida4 = "";
+                    string Batida5 = "";
+                    string Batida6 = "";
+                    string Batida7 = "";
+                    string Batida8 = "";
+                    string Batida9 = "";
+                    string Batida10 ="";
+
                     string NomeFunc = "";
                     string idDpto = "";
                     string NomeDpto = "";
                     string Falta = "1";
                     string idFunc = "";
-                    DateTime HorasTrabalhadas = new DateTime();
+                    bool AlgumDiaComMarcacao = false;
+                    string HorasTrabalhadas = "";
+                    bool MarcacaoPar = false;
+                    int qdeMarcacao = 0;
 
                     foreach (DataGridViewRow bat in dgvBatidas.Rows)
                     {
@@ -738,24 +754,139 @@ namespace PontoWebIntegracaoExterna
                         //}
                         //if (Func.ID == idFunc)
                         //{
-                            DateTime Batida1 = Convert.ToDateTime(dgvBatidas.Rows[bat.Index].Cells["Entrada1"].Value.ToString());
-                            string Batida2 = dgvBatidas.Rows[bat.Index].Cells["Saida1"].Value.ToString();
-                            string Batida3 = dgvBatidas.Rows[bat.Index].Cells["Entrada2"].Value.ToString();
-                            string Batida4 = dgvBatidas.Rows[bat.Index].Cells["Saida2"].Value.ToString();
-                            string Batida5 = dgvBatidas.Rows[bat.Index].Cells["Entrada3"].Value.ToString();
-                            string Batida6 = dgvBatidas.Rows[bat.Index].Cells["Saida3"].Value.ToString();
-                            string Batida7 = dgvBatidas.Rows[bat.Index].Cells["Entrada4"].Value.ToString();
-                            string Batida8 = dgvBatidas.Rows[bat.Index].Cells["Saida4"].Value.ToString();
-                            string Batida9 = dgvBatidas.Rows[bat.Index].Cells["Entrada5"].Value.ToString();
-                            string Batida10 = dgvBatidas.Rows[bat.Index].Cells["Saida5"].Value.ToString();
+                            Batida1 = dgvBatidas.Rows[bat.Index].Cells["Entrada1"].Value.ToString();
+                            Batida2 = dgvBatidas.Rows[bat.Index].Cells["Saida1"].Value.ToString();
+                            Batida3 = dgvBatidas.Rows[bat.Index].Cells["Entrada2"].Value.ToString();
+                            Batida4 = dgvBatidas.Rows[bat.Index].Cells["Saida2"].Value.ToString();
+                            Batida5 = dgvBatidas.Rows[bat.Index].Cells["Entrada3"].Value.ToString();
+                            Batida6 = dgvBatidas.Rows[bat.Index].Cells["Saida3"].Value.ToString();
+                            Batida7 = dgvBatidas.Rows[bat.Index].Cells["Entrada4"].Value.ToString();
+                            Batida8 = dgvBatidas.Rows[bat.Index].Cells["Saida4"].Value.ToString();
+                            Batida9 = dgvBatidas.Rows[bat.Index].Cells["Entrada5"].Value.ToString();
+                            Batida10 = dgvBatidas.Rows[bat.Index].Cells["Saida5"].Value.ToString();
+
+
+                            if(Batida1 !="" || Batida2 != "" || Batida3 != "" || Batida4 != "" || Batida5 != "" || 
+                                Batida6 != "" || Batida7 != "" || Batida8 != "" || Batida9 != "" || Batida10 != "" )
+                            {
+                                Falta = "0";
+                                AlgumDiaComMarcacao = true;
+
+
+                            }
+                            else
+                            {
+                                Falta = "1";
+                                AlgumDiaComMarcacao = false;
+                            }
+
+
+                            if (AlgumDiaComMarcacao)
+                            {
+                                if (Batida1.Contains(":") && Batida1 != "" && Batida1.Length==5)
+                                {
+                                    qdeMarcacao++;
+                                }
+                                if (Batida2.Contains(":") && Batida2 != "" && Batida2.Length == 5)
+                                {
+                                    qdeMarcacao++;
+                                }
+                                if (Batida3.Contains(":") && Batida3 != "" && Batida3.Length == 5)
+                                {
+                                    qdeMarcacao++;
+                                }
+                                if (Batida4.Contains(":") && Batida4 != "" && Batida4.Length == 5)
+                                {
+                                    qdeMarcacao++;
+                                }
+                                if (Batida5.Contains(":") && Batida5 != "" && Batida5.Length == 5)
+                                {
+                                    qdeMarcacao++;
+                                }
+                                if (Batida6.Contains(":") && Batida6 != "" && Batida6.Length == 5)
+                                {
+                                    qdeMarcacao++;
+                                }
+                                if (Batida7.Contains(":") && Batida7 != "" && Batida7.Length == 5)
+                                {
+                                    qdeMarcacao++;
+                                }
+                                if (Batida8.Contains(":") && Batida8 != "" && Batida8.Length == 5)
+                                {
+                                    qdeMarcacao++;
+                                }
+                                if (Batida9.Contains(":") && Batida9 != "" && Batida9.Length == 5)
+                                {
+                                    qdeMarcacao++;
+                                }
+                                if (Batida10.Contains(":") && Batida10 != "" && Batida10.Length == 5)
+                                {
+                                    qdeMarcacao++;
+                                }
+
+
+                                if (qdeMarcacao == 2 || qdeMarcacao == 4 || qdeMarcacao == 6)
+                                {
+                                    MarcacaoPar = true;
+                                }
+
+                                HorasTrabalhadas = "Qde: " +qdeMarcacao;
+                            }
+
+                            if(MarcacaoPar)
+                            {
+                                if (qdeMarcacao == 4)
+                                {
+                                    var horaInicio = Convert.ToDateTime(Batida1);
+                                    var horaFim = Convert.ToDateTime(Batida4);
+
+                                    if (horaFim < horaInicio)
+                                    {
+                                        horaFim = horaFim.AddDays(1);
+                                                                            }
+                                    var RefInicio = Convert.ToDateTime(Batida2);
+                                    var RefFim = Convert.ToDateTime(Batida3);
+
+                                    var Horatempo = horaFim - horaInicio;
+                                    var Reftempo = RefFim - RefInicio;
+
+                                    var TotalTempo = Horatempo - Reftempo;
+                                    HorasTrabalhadas = TotalTempo.ToString().Substring(0,5);
+
+                                }
+                                if (qdeMarcacao == 2)
+                                {
+                                    var horaInicio = Convert.ToDateTime(Batida1);
+                                    var horaFim = Convert.ToDateTime(Batida2);
+
+                                    if (horaFim < horaInicio)
+                                    {
+                                        horaFim = horaFim.AddDays(1);
+                                    }                                     
+                                    var TotalTempo = horaFim - horaInicio;
+                                    HorasTrabalhadas = TotalTempo.ToString().Substring(0,5);
+
+                                }
+
+                            }
+
+
+
 
                             break;
                         }
 
-                        TimeSpan horaIni = new TimeSpan(2, 45, 0);
-                        TimeSpan horaFim = new TimeSpan(3, 20, 0);
-                        //Mostrar o resultado no prompt
-                        Console.WriteLine(horaFim.Subtract(horaIni).ToString());
+
+
+
+
+                        
+
+
+
+
+
+
 
 
 
@@ -764,7 +895,7 @@ namespace PontoWebIntegracaoExterna
 
                     }
 
-                    if (Falta == "1")
+                    if (Falta == "1") // ?? e pq o 0 nao entra ?
                     {
                         idFunc = Func.ID;
 
@@ -787,7 +918,7 @@ namespace PontoWebIntegracaoExterna
 
 
 
-                    dataGridView1.ColumnCount = 5; //carregar a qdade de colunas
+                    dataGridView1.ColumnCount = 5; 
                     dataGridView1.Columns[0].Name = "Data";
                     dataGridView1.Columns[1].Name = "Nome";
                     dataGridView1.Columns[2].Name = "Dpto";
@@ -802,7 +933,7 @@ namespace PontoWebIntegracaoExterna
 
 
                     dataGridView1.Rows.Add(DataDGV.ToString().Substring(0, 10), NomeFunc.ToString(),
-                        NomeDpto.ToString(), Falta.ToString(), HorasTrabalhadas.ToShortDateString());
+                        NomeDpto.ToString(), Falta.ToString(), HorasTrabalhadas);
 
 
 
