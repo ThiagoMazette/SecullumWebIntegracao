@@ -35,7 +35,7 @@ namespace PontoWebIntegracaoExterna
 
             AutenticacaoResposta resposta = new AutenticacaoResposta();
 
-            if (respHttp.CodigoHttp == HttpStatusCode.OK)
+            if (respHttp.CodigoHttp == HttpStatusCode.OK) //entre sem auto com
             {
                 resposta = JsonConvert.DeserializeObject<AutenticacaoResposta>(respHttp.Conteudo);
             }
@@ -75,9 +75,8 @@ namespace PontoWebIntegracaoExterna
 
             if (respostaHttpListaBancos.CodigoHttp == HttpStatusCode.OK)
             {
-                var listaBancos = JsonConvert.DeserializeObject<List<Banco>>(respostaHttpListaBancos.Conteudo);
-
-                // ClienteId 3 = valor fixo
+                var listaBancos = JsonConvert.DeserializeObject<List<Banco>>(respostaHttpListaBancos.Conteudo); //1
+                                
                 resposta.listaBancos = listaBancos.Where(x => x.clienteId == "3").Select(x => new Banco
                 {
                     id = x.id,
@@ -373,7 +372,7 @@ namespace PontoWebIntegracaoExterna
         }
 
         private RespostaRequisicao FazRequisicaoHttp(TipoWebServiceSecullum webservice, string endereco, string metodo, object dados = null)
-        {
+        { //4
             try
             {
                 var url = (webservice == TipoWebServiceSecullum.Autenticador ? ENDERECO_AUTENTICADOR : ENDERECO_PONTOWEB) + endereco;
@@ -387,15 +386,16 @@ namespace PontoWebIntegracaoExterna
                 request.ServicePoint.Expect100Continue = false;
                 request.ContentLength = 0;
 
-                if (webservice == TipoWebServiceSecullum.Autenticador)
+                if (webservice == TipoWebServiceSecullum.Autenticador)// entra sem auto com
                 {
                     request.ContentType = "application/x-www-form-urlencoded";
                 }
-                else
+                else // netra com auto
                 {
                     request.ContentType = "application/json; charset=utf-8";
                     request.Headers["Accept-Language"] = "pt-BR";
-                    request.Headers["secullumbancoselecionado"] = BancoPontoWebSelecionado;
+                    request.Headers["secullumbancoselecionado"] = BancoPontoWebSelecionado; //"fb64669b31c34a8091632e102283a907"
+   
                 }
 
                 if (!string.IsNullOrEmpty(AccessTokenSelecionado))
@@ -403,7 +403,7 @@ namespace PontoWebIntegracaoExterna
                     request.Headers["Authorization"] = $"Bearer {AccessTokenSelecionado}";
                 }
 
-                if (dados != null)
+                if (dados != null)//entra sem auto com . nao entrou no 4
                 {
                     if (webservice == TipoWebServiceSecullum.Autenticador)
                     {
@@ -429,14 +429,14 @@ namespace PontoWebIntegracaoExterna
                         }
                     }
                 }
-
+                
                 try
-                {
+                { //4 aki da o erro qdo nao esta atu
                     using (var response = (HttpWebResponse)request.GetResponse())
                     using (var streamReader = new StreamReader(response.GetResponseStream()))
                     {
-                        resposta.CodigoHttp = response.StatusCode;
-                        resposta.Conteudo = streamReader.ReadToEnd();
+                        resposta.CodigoHttp =  response.StatusCode; // "OK"; System.Net.HttpStatusCode.OK;
+                        resposta.Conteudo = streamReader.ReadToEnd(); //"[{\"Id\":2,\"Uf\":\"SP\",\"Cep\":\"04613-030\",\"Fax\":\"\",\"CEI\":\"\",\"Pais\":\"Brasil\",\"Nome\":\"teste para banco de horas\",\"Bairro\":\"Campo Belo\",\"Telefone\":\"\",\"Endereco\":\"Rua Barão de Vallim, 171\",\"Documento\":\"02.082.848/0004-85\",\"Inscricao\":\"ISENTO\",\"NFolhaEmpresa\":\"\",\"TipoDocumento\":0,\"ResponsavelNome\":\"teste\",\"ResponsavelCargo\":\"teste\",\"ResponsavelEmail\":\"TESTE@GMAIL.COM\",\"Cidade\":\"São Paulo\",\"ConfigEspecificaInclusaoManualPonto\":null},{\"Id\":1,\"Uf\":\"SP\",\"Cep\":\"00000-000\",\"Fax\":\"\",\"CEI\":\"\",\"Pais\":\"Brasil\",\"Nome\":\"TESTE REP RELÓGIOS\",\"Bairro\":\"teste\",\"Telefone\":\"\",\"Endereco\":\"teste\",\"Documento\":\"13.065.239/0001-91\",\"Inscricao\":\"ISENTO\",\"NFolhaEmpresa\":\"\",\"TipoDocumento\":0,\"ResponsavelNome\":\"teste\",\"ResponsavelCargo\":\"teste\",\"ResponsavelEmail\":\"TESTE@GMAIL.COM\",\"Cidade\":\"sp\",\"ConfigEspecificaInclusaoManualPonto\":null}]"
                         return resposta;
                     }
                 }
@@ -454,9 +454,10 @@ namespace PontoWebIntegracaoExterna
                         throw new Exception("Banco não autorizado", ex);
                     }
 
+
                     using (var streamReader = new StreamReader(response.GetResponseStream()))
                     {
-                        resposta.CodigoHttp = response.StatusCode;
+                        resposta.CodigoHttp = response.StatusCode;  // badrequest
                         resposta.Conteudo = streamReader.ReadToEnd();
 
                         return resposta;

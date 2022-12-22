@@ -724,12 +724,11 @@
             this.dgvBatidas.AllowUserToAddRows = false;
             this.dgvBatidas.AllowUserToDeleteRows = false;
             this.dgvBatidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBatidas.Location = new System.Drawing.Point(8, 31);
+            this.dgvBatidas.Location = new System.Drawing.Point(12, 31);
             this.dgvBatidas.Name = "dgvBatidas";
             this.dgvBatidas.RowHeadersVisible = false;
-            this.dgvBatidas.Size = new System.Drawing.Size(965, 199);
+            this.dgvBatidas.Size = new System.Drawing.Size(961, 199);
             this.dgvBatidas.TabIndex = 65;
-            this.dgvBatidas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBatidas_CellContentClick);
             // 
             // label13
             // 

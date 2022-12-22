@@ -1,8 +1,6 @@
 ﻿using PontoWebIntegracaoExterna.Filtros;
-using PontoWebIntegracaoExterna.Modelos;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace PontoWebIntegracaoExterna
@@ -10,6 +8,7 @@ namespace PontoWebIntegracaoExterna
     public partial class frmExemplo : Form
     {
         IntegracaoPontoWeb integracao = new IntegracaoPontoWeb();
+        
 
         public frmExemplo()
         {
@@ -964,7 +963,7 @@ namespace PontoWebIntegracaoExterna
                 cboCS_Bancos.DataSource = null;
                 MessageBox.Show(resp.mensagem);
             }
-            else
+            else //entra sem auto com
             {
                 txtCS_Access_Token.Text = resp.access_token;
                 txtCS_Refresh_Token.Text = resp.refresh_token;
@@ -974,25 +973,41 @@ namespace PontoWebIntegracaoExterna
 
         void voidbtnListarDados()
         {
-            var resp = integracao.BuscaDadosContaSecullum(txtCS_Access_Token.Text);
-
-            if (resp.erro)
+            try
             {
-                txtCS_NomeUsuario.Text = "";
-                cboCS_Bancos.Items.Clear();
-                MessageBox.Show(resp.mensagem);
+                var resp = integracao.BuscaDadosContaSecullum(txtCS_Access_Token.Text);
+
+                if (resp.erro)
+                {
+                    txtCS_NomeUsuario.Text = "";
+                    cboCS_Bancos.Items.Clear();
+                    MessageBox.Show(resp.mensagem);
+                }
+                else
+                {
+                    txtCS_NomeUsuario.Text = resp.nome;
+
+                    cboCS_Bancos.DisplayMember = "nome";
+                    cboCS_Bancos.ValueMember = "identificador";
+                    cboCS_Bancos.DataSource = new BindingSource(resp.listaBancos, null);
+                }
+
+                if (cboCS_Bancos.Items.Count == 1)
+                {
+                    cboCS_Bancos.SelectedIndex = 0;
+                }
+                else
+                {
+                    MessageBox.Show("erro ao selecionar o banco");
+                }
+
             }
-            else
+            catch(Exception ex)
             {
-                txtCS_NomeUsuario.Text = resp.nome;
-
-                cboCS_Bancos.DisplayMember = "nome";
-                cboCS_Bancos.ValueMember = "identificador";
-                cboCS_Bancos.DataSource = new BindingSource(resp.listaBancos, null);
+                MessageBox.Show(ex.Message);
             }
 
 
-            cboCS_Bancos.SelectedIndex = 0;
 
         }
 
@@ -1068,45 +1083,89 @@ namespace PontoWebIntegracaoExterna
             }
         }
 
-        Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
+        
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count > 0)
             {
+                Microsoft.Office.Interop.Excel.Application _excell = new Microsoft.Office.Interop.Excel.Application();
                 try
                 {
-                    XcelApp.Application.Workbooks.Add(Type.Missing);
+                    
+                    _excell.Application.Workbooks.Add(Type.Missing);
 
                     for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
                     {
-                        XcelApp.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
+                        _excell.Cells[1, i] = dataGridView1.Columns[i-1].HeaderText;
                     }
-                    //
-                    for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
                     {
-                        for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                        for (int ii = 0; ii < dataGridView1.Columns.Count; ii++)
                         {
-                            XcelApp.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                            _excell.Cells[i + 2, ii + 1] = dataGridView1.Rows[i].Cells[ii].Value.ToString();
                         }
                     }
-                    //
-                    XcelApp.Columns.AutoFit();
-                    //
-                    XcelApp.Visible = true;
+                    _excell.Columns.AutoFit();
+                    _excell.Visible = true;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro : " + ex.Message);
-                    XcelApp.Quit();
+                    MessageBox.Show(ex.Message);
+                    _excell.Quit();
                 }
             }
 
         }
 
-        private void dgvBatidas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+           
+        //    SheetsService sheetsService = new SheetsService(new BaseClientService.Initializer
+        //    {
+        //        HttpClientInitializer = GetCredential(),
+        //        ApplicationName = "Google-SheetsSample/0.1",
+        //    });
 
-        }
+        //    // The spreadsheet to request.
+        //    string spreadsheetId = "1bcVc-C49-fGPilv5YoXyYAYn4e0_A_oDALD1tX7AhXE";  // TODO: Update placeholder value.
+
+        //    // The ranges to retrieve from the spreadsheet.
+        //    List<string> ranges = new List<string>();  // TODO: Update placeholder value.
+
+        //    // True if grid data should be returned.
+        //    // This parameter is ignored if a field mask was set in the request.
+        //    bool includeGridData = false;  // TODO: Update placeholder value.
+
+        //    SpreadsheetsResource.GetRequest request = sheetsService.Spreadsheets.Get(spreadsheetId);
+        //    request.Ranges = ranges;
+        //    request.IncludeGridData = includeGridData;
+
+        //    // To execute asynchronously in an async method, replace `request.Execute()` as shown:
+        //    Data.Spreadsheet response = request.Execute();
+        //    // Data.Spreadsheet response = await request.ExecuteAsync();
+
+        //    // TODO: Change code below to process the `response` object:
+        //    Console.WriteLine(JsonConvert.SerializeObject(response));
+
+            
+
+        //    UserCredential GetCredential()
+        //    {
+        //        // TODO: Change placeholder below to generate authentication credentials. See:
+        //        // https://developers.google.com/sheets/quickstart/dotnet#step_3_set_up_the_sample
+        //        //
+        //        // Authorize using one of the following scopes:
+        //        //     "https://www.googleapis.com/auth/drive"
+        //        //     "https://www.googleapis.com/auth/drive.file"
+        //        //     "https://www.googleapis.com/auth/drive.readonly"
+        //        //     "https://www.googleapis.com/auth/spreadsheets"
+        //        //     "https://www.googleapis.com/auth/spreadsheets.readonly"
+        //        return null;
+        //    }
+        //}
+
+
+
     }
 }
