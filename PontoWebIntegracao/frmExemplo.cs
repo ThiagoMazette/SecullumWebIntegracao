@@ -1,6 +1,7 @@
 ﻿using PontoWebIntegracaoExterna.Filtros;
 using System;
 using System.Collections.Generic;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace PontoWebIntegracaoExterna
@@ -650,6 +651,8 @@ namespace PontoWebIntegracaoExterna
             ListaNomeFuncionario.Clear();
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
+            dgvBatidas.DataSource = null;
+            dgvBatidas.Rows.Clear();
 
             //dgvEmpresas.AutoGenerateColumns=false;
             voidbtnAutenticar1();
@@ -689,17 +692,32 @@ namespace PontoWebIntegracaoExterna
 
                 if (Invisivel == false)
                 {
+
+                    foreach (var dep in ListaNomeDepartamento)
+                    {
+                        if (dep.ID == DptoFunc)
+                        {
+                            DptoFunc = dep.Nome;
+                            break;
+                        }
+
+                    }
+
+
                     ListaNomeFuncionario.Add(new ClasseListaNomeFuncionario()
                     {
                         ID = IdFunc,
                         Nome = NomeFunc,
                         Dpto = DptoFunc
-
                     });
+                                       
+                    
                 }
 
             }
             #endregion
+
+            
 
 
             //aparecer bonito
@@ -722,12 +740,23 @@ namespace PontoWebIntegracaoExterna
                     string Batida2 = "";
                     string Batida3 = "";
                     string Batida4 = "";
-                    string Batida5 = "";
-                    string Batida6 = "";
-                    string Batida7 = "";
-                    string Batida8 = "";
-                    string Batida9 = "";
-                    string Batida10 ="";
+                    //string Batida5 = "";
+                    //string Batida6 = "";
+                    //string Batida7 = "";
+                    //string Batida8 = "";
+                    //string Batida9 = "";
+                    //string Batida10 ="";
+
+                    bool TemBatida1 = false;
+                    bool TemBatida2 =  false;
+                    bool TemBatida3 =  false;
+                    bool TemBatida4 =  false;
+                    //bool TemBatida5 =  false;
+                    //bool TemBatida6 =  false;
+                    //bool TemBatida7 =  false;
+                    //bool TemBatida8 =  false;
+                    //bool TemBatida9 =  false;
+                    //bool TemBatida10 = false;
 
                     string NomeFunc = "";
                     string idDpto = "";
@@ -757,16 +786,16 @@ namespace PontoWebIntegracaoExterna
                             Batida2 = dgvBatidas.Rows[bat.Index].Cells["Saida1"].Value.ToString();
                             Batida3 = dgvBatidas.Rows[bat.Index].Cells["Entrada2"].Value.ToString();
                             Batida4 = dgvBatidas.Rows[bat.Index].Cells["Saida2"].Value.ToString();
-                            Batida5 = dgvBatidas.Rows[bat.Index].Cells["Entrada3"].Value.ToString();
-                            Batida6 = dgvBatidas.Rows[bat.Index].Cells["Saida3"].Value.ToString();
-                            Batida7 = dgvBatidas.Rows[bat.Index].Cells["Entrada4"].Value.ToString();
-                            Batida8 = dgvBatidas.Rows[bat.Index].Cells["Saida4"].Value.ToString();
-                            Batida9 = dgvBatidas.Rows[bat.Index].Cells["Entrada5"].Value.ToString();
-                            Batida10 = dgvBatidas.Rows[bat.Index].Cells["Saida5"].Value.ToString();
+                            //Batida5 = dgvBatidas.Rows[bat.Index].Cells["Entrada3"].Value.ToString();
+                            //Batida6 = dgvBatidas.Rows[bat.Index].Cells["Saida3"].Value.ToString();
+                            //Batida7 = dgvBatidas.Rows[bat.Index].Cells["Entrada4"].Value.ToString();
+                            //Batida8 = dgvBatidas.Rows[bat.Index].Cells["Saida4"].Value.ToString();
+                            //Batida9 = dgvBatidas.Rows[bat.Index].Cells["Entrada5"].Value.ToString();
+                            //Batida10 = dgvBatidas.Rows[bat.Index].Cells["Saida5"].Value.ToString();
 
 
-                            if(Batida1 !="" || Batida2 != "" || Batida3 != "" || Batida4 != "" || Batida5 != "" || 
-                                Batida6 != "" || Batida7 != "" || Batida8 != "" || Batida9 != "" || Batida10 != "" )
+                            if(Batida1 !="" || Batida2 != "" || Batida3 != "" || Batida4 != "")// || Batida5 != "" || 
+              //                  Batida6 != "" || Batida7 != "" || Batida8 != "" || Batida9 != "" || Batida10 != "" )
                             {
                                 Falta = "0";
                                 AlgumDiaComMarcacao = true;
@@ -784,44 +813,48 @@ namespace PontoWebIntegracaoExterna
                             {
                                 if (Batida1.Contains(":") && Batida1 != "" && Batida1.Length==5)
                                 {
+                                    TemBatida1 = true;
                                     qdeMarcacao++;
                                 }
                                 if (Batida2.Contains(":") && Batida2 != "" && Batida2.Length == 5)
                                 {
+                                    TemBatida2 = true;
                                     qdeMarcacao++;
                                 }
                                 if (Batida3.Contains(":") && Batida3 != "" && Batida3.Length == 5)
                                 {
+                                    TemBatida3 = true;
                                     qdeMarcacao++;
                                 }
                                 if (Batida4.Contains(":") && Batida4 != "" && Batida4.Length == 5)
                                 {
+                                    TemBatida4 = true;
                                     qdeMarcacao++;
                                 }
-                                if (Batida5.Contains(":") && Batida5 != "" && Batida5.Length == 5)
-                                {
-                                    qdeMarcacao++;
-                                }
-                                if (Batida6.Contains(":") && Batida6 != "" && Batida6.Length == 5)
-                                {
-                                    qdeMarcacao++;
-                                }
-                                if (Batida7.Contains(":") && Batida7 != "" && Batida7.Length == 5)
-                                {
-                                    qdeMarcacao++;
-                                }
-                                if (Batida8.Contains(":") && Batida8 != "" && Batida8.Length == 5)
-                                {
-                                    qdeMarcacao++;
-                                }
-                                if (Batida9.Contains(":") && Batida9 != "" && Batida9.Length == 5)
-                                {
-                                    qdeMarcacao++;
-                                }
-                                if (Batida10.Contains(":") && Batida10 != "" && Batida10.Length == 5)
-                                {
-                                    qdeMarcacao++;
-                                }
+                                //if (Batida5.Contains(":") && Batida5 != "" && Batida5.Length == 5)
+                                //{
+                                //    qdeMarcacao++;
+                                //}
+                                //if (Batida6.Contains(":") && Batida6 != "" && Batida6.Length == 5)
+                                //{
+                                //    qdeMarcacao++;
+                                //}
+                                //if (Batida7.Contains(":") && Batida7 != "" && Batida7.Length == 5)
+                                //{
+                                //    qdeMarcacao++;
+                                //}
+                                //if (Batida8.Contains(":") && Batida8 != "" && Batida8.Length == 5)
+                                //{
+                                //    qdeMarcacao++;
+                                //}
+                                //if (Batida9.Contains(":") && Batida9 != "" && Batida9.Length == 5)
+                                //{
+                                //    qdeMarcacao++;
+                                //}
+                                //if (Batida10.Contains(":") && Batida10 != "" && Batida10.Length == 5)
+                                //{
+                                //    qdeMarcacao++;
+                                //}
 
 
                                 if (qdeMarcacao == 2 || qdeMarcacao == 4 || qdeMarcacao == 6)
@@ -855,6 +888,18 @@ namespace PontoWebIntegracaoExterna
                                 }
                                 if (qdeMarcacao == 2)
                                 {
+
+                                    //se esta na sequencia
+                                    if (TemBatida1 == false && TemBatida3 == true && TemBatida2==false && TemBatida4==true)
+                                    {
+                                        Batida1 = Batida3;
+                                        Batida2 = Batida4;
+                                    }
+
+
+
+
+
                                     var horaInicio = Convert.ToDateTime(Batida1);
                                     var horaFim = Convert.ToDateTime(Batida2);
 
@@ -894,24 +939,26 @@ namespace PontoWebIntegracaoExterna
 
                     }
 
-                    if (Falta == "1") // ?? e pq o 0 nao entra ?
-                    {
-                        idFunc = Func.ID;
+                    //27/12/22 if (Falta == "1") // ?? e pq o 0 nao entra ?
+                    //{
+                    //    idFunc = Func.ID;
 
-                    }
+                    //}
 
 
                     NomeFunc = Func.Nome;
-                    idDpto = Func.Dpto;
-                    foreach (var dep in ListaNomeDepartamento)
-                    {
-                        if (dep.ID == idDpto)
-                        {
-                            NomeDpto = dep.Nome;
-                            break;
-                        }
+                    NomeDpto = Func.Dpto;
+                    
+                    //27/12/22 passado la pra cima pra lista ja vim feita
+                    //foreach (var dep in ListaNomeDepartamento)
+                    //{
+                    //    if (dep.ID == idDpto)
+                    //    {
+                    //        NomeDpto = dep.Nome;
+                    //        break;
+                    //    }
 
-                    }
+                    //}
 
 
 
